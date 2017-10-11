@@ -26,6 +26,17 @@ namespace CollectionsAndGenerics
 
             int valGeneric = (int)list2[0];                             //Casting Required
 			Console.WriteLine(valGeneric);
+
+
+			ObservableCollection<Person> people = new ObservableCollection<Person>()
+		{
+			new Person(19,"Peter","Jonson"),
+			new Person(45, "Luck", "McConly"),
+			new Person(32, "Jan", "Janovski")
+		};
+
+            people.CollectionChanged += ObservableClass.ObservableHandler;
+
 		}
     }
 
@@ -93,8 +104,10 @@ namespace CollectionsAndGenerics
 
     public class ObservableClass
     {
-        ObservableCollection<Person> people = new ObservableCollection<Person>();
-
+        public static void ObservableHandler(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            Console.WriteLine("Collection is amended!!!");
+        }
     }
 
     internal class Person
