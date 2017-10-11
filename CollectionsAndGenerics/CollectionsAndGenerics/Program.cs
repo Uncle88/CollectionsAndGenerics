@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 namespace CollectionsAndGenerics
 {
@@ -89,4 +90,24 @@ namespace CollectionsAndGenerics
             count = count + 1;
         }
 	}
+
+    public class ObservableClass
+    {
+        ObservableCollection<Person> people = new ObservableCollection<Person>();
+
+    }
+
+    internal class Person
+    {
+        public int Age { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public Person(int age, string firstName, string lastName)
+        {
+            Age = age;
+            FirstName = firstName;
+            LastName = lastName;
+        }
+    }
 }
