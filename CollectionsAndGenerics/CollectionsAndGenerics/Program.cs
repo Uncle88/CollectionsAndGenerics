@@ -107,6 +107,24 @@ namespace CollectionsAndGenerics
         public static void ObservableHandler(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             Console.WriteLine("Collection is amended!!!");
+            Console.WriteLine("Action for this event : {0}", e.Action);
+
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
+            {
+                foreach (Person p in e.OldItems)
+                {
+                    Console.WriteLine(p.ToString());
+                }
+            }
+			Console.WriteLine();
+
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+			{
+                foreach (Person p in e.NewItems)
+				{
+					Console.WriteLine(p.ToString());
+				}
+			}
         }
     }
 
